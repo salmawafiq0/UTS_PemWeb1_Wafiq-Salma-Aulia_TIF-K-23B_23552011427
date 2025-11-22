@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Wafiq Salma Aulia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 0 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+        }
+
+        /* Experience Section */
+        .experience-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .experience-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-header h3 {
+            color: #667eea;
+            font-size: 1.8rem;
+        }
+
+        .experience-header .company {
+            font-size: 1.2rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .experience-header .period {
+            color: #888;
+            font-style: italic;
+            white-space: nowrap;
+        }
+
+        .experience-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-card li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .experience-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            background: white;
+            padding: 4rem 2rem;
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            background: #e9ecef;
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 5px;
+            transition: width 1s ease;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            nav a {
+                padding:
+                padding 0.4rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="experience.html" class="active">Experience</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Pengalaman & Keahlian</h1>
+        <p>Perjalanan Profesional dan Kompetensi</p>
+    </section>
+
+    <!-- Experience Section -->
+    <div class="experience-container">
+        <h2 class="section-title">Pengalaman Kerja</h2>
+        <div class="experience-grid">
+            <!-- Experience 1 -->
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3>Customer Service Admin - E-Commerce</h3>
+                        <p class="company">Princess DTF | Admin E-Commerce</p>
+                    </div>
+                    <span class="period">Oktober 2024 - Agustus 2025</span>
+                </div>
+                <ul>
+                    <li>Mengelola interaksi pelanggan melalui WhatsApp, Shopee, dan Tokopedia dengan memberikan respons yang cepat dan komunikatif</li>
+                    <li>Melakukan input data dan pemrosesan pesanan pelanggan secara teliti dan akurat</li>
+                    <li>Memberikan pelayanan maksimal dengan memahami kebutuhan pelanggan untuk memastikan kepuasan maksimal</li>
+                    <li>Menangani keluhan pelanggan, proses return, dan memberikan solusi yang tepat dan efektif</li>
+                    <li>Memproses pesanan customer menggunakan software editing (Photoshop, Adobe Illustrator, dan Corel Draw) untuk pengeditan gambar customer</li>
+                </ul>
+            </div>
+
+            <!-- Experience 2 -->
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3>Tenaga Medis - Puskesmas</h3>
+                        <p class="company">Puskesmas Cimareme (PKL)</p>
+                    </div>
+                    <span class="period">07 Maret 2022 - 30 April 2022</span>
+                </div>
+                <ul>
+                    <li>Melakukan anamnesis/wawancara di Poli umum, mencatat keluhan pasien sebelum ditindak lanjuti oleh dokter</li>
+                    <li>Melakukan pemeriksaan TTV (Tanda-Tanda Vital) seperti tekanan darah, nadi, suhu, dan respirasi</li>
+                    <li>Membaca resep dan menyediakan obat yang telah ditetapkan sesuai diagnosa dan anjuran yang dianjurkan oleh dokter</li>
+                    <li>Melengkapi data pasien TBC untuk dokumentasi dan pelaporan</li>
+                    <li>Mengkaji berat badan pasien dan membantu menyiapkan pemberian obat di ruang TBC</li>
+                    <li>Melakukan pengontrolan pada klien yang akan divaksin di Puskesmas maupun di luar/kunjungan ke sekolah lain</li>
+                    <li>Melakukan Penyuluhan tentang etika batuk bersama rekan PKL</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="skills-container">
+            <h2 class="section-title">Keahlian & Kompetensi</h2>
+            <div class="skills-grid">
+                <!-- Technical Skills -->
+                <div class="skill-category">
+                    <h3>💻 Technical Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Microsoft Office Suite</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Adobe Photoshop</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Adobe Illustrator</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>CorelDRAW</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-Commerce Skills -->
+                <div class="skill-category">
+                    <h3>🛒 E-Commerce Platform</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Shopee Admin</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Tokopedia Admin</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>WhatsApp Business</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Customer Service Digital</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="skill-category">
+                    <h3>🎯 Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>✓ Komunikasi yang efektif dan profesional</li>
+                        <li>✓ Penanganan chat pelanggan dengan etika profesional dan sopan santun</li>
+                        <li>✓ Operasional marketplace Shopee dan Tokopedia</li>
+                        <li>✓ Cepat beradaptasi dengan lingkungan kerja baru</li>
+                        <li>✓ Mampu bekerja dalam team maupun individu</li>
+                        <li>✓ Teliti dalam mengelola data administrasi dan dokumentasi</li>
+                        <li>✓ Senang dan mau mempelajari hal baru</li>
+                        <li>✓ Jujur, bertanggung jawab, dan memiliki dedikasi tinggi</li>
+                    </ul>
+                </div>
+
+                <!-- Healthcare Skills -->
+                <div class="skill-category">
+                    <h3>⚕️ Kompetensi Medis</h3>
+                    <ul class="skill-list">
+                        <li>✓ Pemeriksaan tanda-tanda vital (tekanan darah, nadi, suhu, respirasi)</li>
+                        <li>✓ Teknik wawancara dan pencatatan data pasien</li>
+                        <li>✓ Kompetensi dasar hygiene dan keperawatan</li>
+                        <li>✓ Protokol keselamatan kerja di fasilitas kesehatan</li>
+                    </ul>
+                </div>
+
+                <!-- Administrative Skills -->
+                <div class="skill-category">
+                    <h3>📊 Administrative Skills</h3>
+                    <ul class="skill-list">
+                        <li>✓ Administrasi online shop dan pengelolaan database pesanan</li>
+                        <li>✓ Pemrosesan pesanan dan dokumentasi transaksi</li>
+                        <li>✓ Teliti dalam mengelola data administrasi dan dokumentasi</li>
+                        <li>✓ Senang dan mau mempelajari hal baru</li>
+                        <li>✓ Mampu bekerja dalam multidisiplin dengan cepat beradaptasi</li>
+                    </ul>
+                </div>
+
+                <!-- Other Skills -->
+                <div class="skill-category">
+                    <h3>🌟 Keterampilan Lainnya</h3>
+                    <ul class="skill-list">
+                        <li>✓ Kolaborasi tim dalam lingkungan medis</li>
+                        <li>✓ Cepat beradaptasi dengan sistem operasional yang berbeda</li>
+                        <li>✓ Mampu bekerja dalam team maupun individu</li>
+                        <li>✓ Jujur, bertanggung jawab, dan memiliki dedikasi tinggi terhadap pekerjaan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Wafiq Salma Aulia. All Rights Reserved.</p>
+        <p>Portfolio Website - Teknik Informatika UTB</p>
+        <div class="footer-links">
+            <a href="https://github.com/salmawafiq0/UTS_PemWeb1_Wafiq-Salma-Aulia_TIF-K-23B_23552011427" target="_blank">📂 GitHub Repository</a>
+            <a href="https://salmawafiq0.github.io/UTS_PemWeb1_Wafiq-Salma-Aulia_TIF-K-23B_23552011427/" target="_blank">🌐 Live Website</a>
+        </div>
+    </footer>
+</body>
+</html>
